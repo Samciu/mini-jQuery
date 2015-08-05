@@ -113,6 +113,10 @@ $.enter = function(selector, listener) {
 	addEnterEvent($(selector),listener);
 }
 
+$.delegate = function(selector, tag, event, listener) {
+    delegate($(selector),tag,event,listener);
+}
+
 /**
  * 以下是class的操作，增删改查
  * 
