@@ -114,7 +114,7 @@ $.enter = function(selector, listener) {
 }
 
 $.delegate = function(selector, tag, event, listener) {
-    delegate($(selector),tag,event,listener);
+    delegateEvent($(selector),tag,event,listener);
 }
 
 /**
