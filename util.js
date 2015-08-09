@@ -69,8 +69,8 @@ function addEnterEvent(element, listener) {
  * @param  {HTMLElement}
  * @return {Boolean}
  */
-function isParent(element,parentName){
-	for (var node = element; node; node = node.parentNode) {
+function isParent(element,parentName,stopElem){
+	for (var node = element; node !== stopElem; node = node.parentNode) {
         if (node.nodeName.toLowerCase() === parentName) {
             return node;
         }
@@ -90,7 +90,7 @@ function delegateEvent(element, tag, eventName, listener) {
     addEvent(element, eventName, function(event){
     	var event = event || window.event;
     	var target = event.target || event.srcElement;
-        var parent = isParent(target,tag);
+        var parent = isParent(target,tag,element);
     	if (!!parent) {
     		listener(parent);
     	};
